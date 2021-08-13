@@ -1,0 +1,33 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px;
+                                    min-height: 100px; text-align: center; font-weight: bold; color: #999;" >dhneem_a</div>
+  <script type="text/javascript">
+var box = document.getElementById('my_bouncing_box');
+    var positionX = 0;
+    var positionY = 0;
+    var speedX = 10;
+    var speedY = 10;
+    function move() {
+        box.style.left = (positionX += speedX) + "px";
+        box.style.top = (positionY += speedY) +"px";
+    }
+    
+   setInterval(()=> {
+       if ((positionX + 100) >= window.innerWidth) {
+           speedX = -speedX;
+       }
+       if ((positionY + 100) >= window.innerHeight) {
+           speedY = -speedY;
+       } 
+       if (positionX <= 0) {
+           speedX = -speedX;
+           positionX++;
+       }
+       if (positionY <= 0) {
+           speedY = -speedY;
+           positionY++;
+       }
+       move();
+   },300);
+  </script>
+</html>
